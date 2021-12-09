@@ -1,0 +1,11 @@
+<p>Segundo ejercicio - Listado de días</p>
+
+<ul>
+    <li *ngFor = "let dia of dias; let i = index">
+        {{dia}}
+    </li>
+</ul>
+
+<button (click)="borrarDia()">Borrar día</button>
+<p *ngIf="diaBorrado">Se ha borrado a {{diaBorrado}}.</p>
+<ng-template #elseBlock></ng-template>

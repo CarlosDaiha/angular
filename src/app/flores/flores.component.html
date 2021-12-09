@@ -1,0 +1,9 @@
+<p>Tercer ejercicio - Listado de flores</p>
+
+<ul>
+    <li *ngFor = "let flor of flores; let i = index">
+        {{flor}}
+    </li>
+</ul>
+
+<button (click)="borrar()">Borrar flores</button>

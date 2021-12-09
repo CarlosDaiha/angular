@@ -1,0 +1,18 @@
+<p>Quinto ejercicio</p>
+
+<p>Listado de ciudades</p>
+<ul>
+    <li *ngFor = "let ciudad of ciudades; let i = index">
+        {{ciudad}}
+    </li>
+</ul>
+
+<button (click)="mostrar()">Mostrar listado</button>
+<button (click)="borrar()">Borrar ciudad</button>
+
+<p>Listado de ciudades borradas</p>
+<ul>
+    <li *ngFor = "let ciudad of borradas; let i = index">
+        {{ciudad}}
+    </li>
+</ul>

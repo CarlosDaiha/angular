@@ -1,0 +1,11 @@
+<p>Primer ejercicio - Listado de meses</p>
+
+<ul>
+    <li *ngFor = "let mes of meses; let i = index">
+        {{mes}}
+    </li>
+</ul>
+
+<button (click)="borrarMes()">Borrar mes</button>
+<p *ngIf="mesBorrado">Se ha borrado a {{mesBorrado}}.</p>
+<ng-template #elseBlock></ng-template>

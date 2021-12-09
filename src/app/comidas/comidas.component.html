@@ -1,0 +1,9 @@
+<p>Cuarto ejercicio - Listado de comidas</p>
+
+<ul>
+    <li *ngFor = "let comida of comidas; let i = index">
+        {{comida}}
+    </li>
+</ul>
+
+<button (click)="borrar()">Borrar comidas</button>
