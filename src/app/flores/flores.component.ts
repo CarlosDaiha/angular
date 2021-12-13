@@ -1,22 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { AppService } from '../service/app.service';
 
 @Component({
   selector: 'app-flores',
   templateUrl: './flores.component.html',
   styleUrls: ['./flores.component.css']
 })
-export class FloresComponent implements OnInit {
+export class FloresComponent {
 
-  flores : string[] = ["Orquídea", "Margarita", "Azucena", "Azalea", 
-    "Dalia", "Hortensia", "Lirio amarillo", "Hibisco"];
+  constructor(private appService: AppService) { }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  
+  public get flores() : string[] {
+    return this.appService.flores;
   }
+  
 
-  borrar() {
-    this.flores = [];
+  borrar(): void {
+    this.appService.borrarFlores();
   }
 
 }

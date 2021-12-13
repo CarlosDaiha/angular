@@ -1,31 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import { last } from 'rxjs';
+import { Component } from '@angular/core';
+import { AppService } from '../service/app.service';
 
 @Component({
   selector: 'app-ciudades',
   templateUrl: './ciudades.component.html',
   styleUrls: ['./ciudades.component.css']
 })
-export class CiudadesComponent implements OnInit {
+export class CiudadesComponent {
 
-  ciudades : string[] = new Array();
-  borradas : string[] = new Array();
-  aux : string = "";
+  constructor(private appService: AppService) { }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  public get ciudades() : string[] {
+    return this.appService.ciudades;
+  }
+  
+  public get borradas() : string[] {
+    return this.appService.ciudadesBorradas;
   }
 
-  mostrar() {
-    this.ciudades = ["Madrid", "Sevilla", "Barcelona", "Bilbao", "Valencia", "Zaragoza"];
+  mostrar(): void {
+    return this.appService.mostrarCiudades();
   }
 
-  borrar() {
-    if (this.ciudades.length != 0) {
-      this.aux = String(this.ciudades.pop()?.toString());
-      this.borradas.push(this.aux);
-    }
+  borrar(): void {
+    this.appService.borrarCiudad();
   }
 
 }

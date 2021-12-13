@@ -1,22 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { AppService } from '../service/app.service';
 
 @Component({
   selector: 'app-comidas',
   templateUrl: './comidas.component.html',
   styleUrls: ['./comidas.component.css']
 })
-export class ComidasComponent implements OnInit {
+export class ComidasComponent {
+  
+  constructor(private appService: AppService) { }
 
-  comidas : string[] = ["Rápida", "A domicilio", "Típica", "Vegetariana",
-    "Mexicana", "China", "Italiana", "Suiza"];
-
-  constructor() { }
-
-  ngOnInit(): void {
+  public get comidas() : string[] {
+    return this.appService.comidas;
   }
 
-  borrar() {
-    this.comidas = [];
+  borrar(): void {
+    this.appService.borrarComidas();
   }
 
 }

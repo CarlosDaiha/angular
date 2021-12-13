@@ -1,22 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { AppService } from '../service/app.service';
 
 @Component({
   selector: 'app-dias',
   templateUrl: './dias.component.html',
   styleUrls: ['./dias.component.css']
 })
-export class DiasComponent implements OnInit {
+export class DiasComponent {
 
-  dias : string[] = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
   diaBorrado : string|undefined = "";
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private appService: AppService) { }
+  
+  public get dias() : string[] {
+    return this.appService.dias;
   }
 
-  borrarDia() {
-    this.diaBorrado = this.dias.pop();
+  borrar(): void {
+    this.diaBorrado = this.appService.borrarDia();
   }
 
 }
